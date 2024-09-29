@@ -1,0 +1,60 @@
+<div class="container">
+  <div mat-dialog-title>
+    <h1>New Book</h1>
+  </div>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onBookFormSubmit()">
+    <div mat-dialog-content>
+      <p></p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input
+            matInput
+            placeholder="Enter Book Title"
+            formControlName="title"
+          />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Title of the book?</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Author</mat-label>
+          <input
+            matInput
+            placeholder="Enter Author Name"
+            formControlName="author"
+          />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Author of the book?</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>ISBN</mat-label>
+          <input matInput placeholder="Enter ISBN" formControlName="isbn" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>ISBN of the book?</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Available</mat-label>
+          <mat-select formControlName="available">
+            <mat-option [value]="false">Unavailable</mat-option>
+            <mat-option [value]="true">Available</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+    </div>
+    <div mat-dialog-actions class="actions">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">
+        Cancel
+      </button>
+      <button mat-raised-button color="primary" type="submit">
+        {{ data ? "Update" : "Save" }}
+      </button>
+    </div>
+  </form>
+</div>
