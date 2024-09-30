@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BooksService {
 
-  targetUrl: string = 'http://localhost:3000/books';
+  targetUrl: string = 'http://localhost:8080/api/books';
 
   constructor(private _http: HttpClient) { }
 
@@ -32,11 +32,11 @@ export class BooksService {
   }
 
   borrowBook(id: number): Observable<any> {
-    return this._http.patch(`${this.targetUrl}/${id}`, { available: false });
+    return this._http.put(`${this.targetUrl}/${id}/borrow`, null);
   }
 
   returnBook(id: number): Observable<any> {
-    return this._http.patch(`${this.targetUrl}/${id}`, { available: true });
+    return this._http.put(`${this.targetUrl}/${id}/return`, null);
   }
 
 }
